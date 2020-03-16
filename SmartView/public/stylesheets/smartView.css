@@ -1,0 +1,273 @@
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Make the image responsive */
+.container img {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  top: 5px;
+  left: 5px;
+}
+
+/*main button*/
+.container .camerabtn {
+  background-image:url(../assets/images/camara.png);
+  background-repeat:no-repeat;
+  background-size: 80px 80px;
+  width: 100px;
+  height: 110px;
+  max-width: 100px;
+  top: 500px;
+  left: 1230px;
+  background-position: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  padding: 12px 24px;
+  border: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 5px solid gray;
+}
+
+.container .camerabtn:hover {
+  background-color: rgb(202, 218, 194);
+} 
+
+/*main button*/
+.container .mainbtn {
+  background-image:url(../assets/images/bombillo.png);
+  background-repeat:no-repeat;
+  background-size: 100px 100px;
+  width: 100px;
+  height: 110px;
+  max-width: 100px;
+  top: 260px;
+  left: 1230px;
+  background-position: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  padding: 12px 24px;
+  border: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 5px solid gray;
+}
+
+.container .mainbtn:hover {
+  background-color: rgb(202, 218, 194);
+} 
+
+.text1{
+  position:fixed;
+  left:1030px;
+  top:125px;
+  max-width: 400px;
+  font-family: times, serif; 
+  font-size:16pt;
+  color: #000000;
+  border: 5px solid gray;
+  text-align: justify;
+}
+
+.text2{
+  position:fixed;
+  left:1030px;
+  top:420px;
+  max-width: 400px;
+  font-family: times, serif; 
+  font-size:16pt;
+  color: #000000;
+  border: 5px solid gray;
+  text-align: justify;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  background-image:url(../assets/images/bombillo.png);
+  background-repeat:no-repeat;
+  background-size: 50px 50px;
+  width: 50px;
+  max-width: 50px;
+  height: 50px;
+  background-position: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  padding: 12px 24px;
+  border: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.container .btn:hover {
+  background-color: rgb(202, 218, 194);
+} 
+
+.btn1{
+  top: 77%;
+  left: 52%;
+}
+.btn2{
+  top: 70%;
+  left: 25%;
+}
+.btn3{
+  top: 40%;
+  left: 25%;
+}
+.btn4{
+  top: 40%;
+  left: 95%;
+}
+.btn5{
+  top: 75%;
+  left: 95%;
+}
+
+.door {
+  background-image:url(../assets/images/door.png);
+  background-repeat:no-repeat;
+  background-size: 0px 0px;
+  width: 10px;
+  max-width:10px;
+  height: 50px;
+  background-position: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  padding: 12px 24px;
+  border: white;
+  cursor: pointer;
+
+}
+
+.door1{
+  top: 41%;
+  left: 33%;
+}
+
+.flash {
+  width: 10px;
+  background-color: #fff;
+  position: absolute;
+  transition: all .5s;
+}
+.onflash {
+  border-radius: 50%;
+  box-shadow: -4px -7.5px 15px 15px #F1F66C;
+  transition: all .5s;
+}
+
+.onflashmain {
+  border-radius: 50%;
+  box-shadow: 20px -10px 30px 30px #F1F66C;
+  transition: all .5s;
+}
+
+.onflashDoorOpen{
+  border-radius: 25%;
+  box-shadow: -5px -5px 10px 30px rgb(95, 250, 74);
+  transition: all .5s;
+}
+
+
+
+
+@media only screen and (max-width: 680px) {
+  .container .mainbtn {
+    background-size: 50px 50px;
+    width: 50px;
+    height: 60px;
+    max-width: 50px;
+    top: 450px;
+    left: 100px;
+  }
+
+  .container .camerabtn {
+    background-size: 50px 50px;
+    width: 50px;
+    height: 60px;
+    max-width: 50px;
+    top: 450px;
+    left: 200px;
+  }
+  .onflashmain {
+    box-shadow: -7.5px -7.5px 15px 15px #F1F66C;
+    transition: all .5s;
+  }
+  .container .btn {
+    background-size: 35px 35px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .btn1{
+    top: 77%;
+    left: 55%;
+  }
+  .btn2{
+    top: 75%;
+    left: 27%;
+  }
+  .btn3{
+    top: 45%;
+    left: 27%;
+  }
+  .btn4{
+    top: 47%;
+    left: 95%;
+  }
+  .btn5{
+    top: 75%;
+    left: 95%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container .mainbtn {
+    background-size: 50px 50px;
+    width: 50px;
+    height: 60px;
+    max-width: 50px;
+    top: 300px;
+    left: 40px;
+  }
+
+  .container .camerabtn {
+    background-size: 50px 50px;
+    width: 50px;
+    height: 60px;
+    max-width: 50px;
+    top: 300px;
+    left: 100px;
+  }
+
+  .flash {
+    width: 10px;
+  }
+  .onflashmain {
+    box-shadow: -7.5px -5.5px 15px 15px #F1F66C;
+    transition: all .5s;
+  }
+  .container .btn {
+    background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+  }
+}

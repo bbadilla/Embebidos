@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<title>Smart-House</title>
+ <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../public/stylesheet/navegation.css">
+<link rel="stylesheet" href="../public/stylesheetssmartView.css">
+
+<body>
+  <section class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="#!">Smart-House</a>
+      </div>
+      <nav>
+        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+        <ul class="nav-list">
+          <li>
+            <a href="#!">Usuario</a>
+            <ul class="nav-dropdown">
+              <li>
+                <a href="#!">Nombre de usuario</a>
+              </li>
+              <li>
+                <a href="#!">LogOut</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+<div class="container">
+  <div class="text1">
+    Presione un bombillo de alguna
+    habitación para encender la luz, 
+    o presione el siguiente bombillo
+    para encender o apagar simultáneamente
+    las luces.
+  </div>
+  <div class="text2">
+    Presione la cámara para tomar una 
+    fotografía del jardin.
+  </div>
+  <button id="mainbtn" class="mainbtn">
+    <div id="mainflash" class="flash">
+    </div>
+  </button>
+  <button id="camerabtn" class="camerabtn">
+  </button>
+  <img class="img" src="SmartHouse.png" alt="SmartHouse">
+  <button id="btn1" class="btn btn1"> 
+    <div id="flash1" class="flash">
+    </div>
+  </button>
+  <button id="btn2" class="btn btn2">
+    <div id="flash2" class="flash">
+    </div>
+  </button>
+  <button id="btn3" class="btn btn3">
+    <div id="flash3" class="flash">
+    </div>
+  </button>
+  <button id="btn4" class="btn btn4">
+    <div id="flash4" class="flash">
+    </div>
+  </button>
+  <button id="btn5" class="btn btn5">
+    <div id="flash5" class="flash">
+    </div>
+  </button>
+  <button id="door1" class="door door1">
+    <div id="flashD1" class="flash">
+    </div>
+  </button>
+</div> 
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../public/scripts/smartView.js"></script>
+</html>
