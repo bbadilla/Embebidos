@@ -8,7 +8,7 @@
 /* Make the image responsive */
 .container img {
   position: relative;
-  width: 100%;
+  width: 97%;
   max-width: 1000px;
   height: auto;
   top: 5px;
@@ -23,8 +23,8 @@
   width: 100px;
   height: 110px;
   max-width: 100px;
-  top: 500px;
-  left: 1230px;
+  top: 300px;
+  left: 1162px;
   background-position: center;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -50,8 +50,8 @@
   width: 100px;
   height: 110px;
   max-width: 100px;
-  top: 260px;
-  left: 1230px;
+  top: 150px;
+  left: 1162px;
   background-position: center;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -71,11 +71,11 @@
 
 .text1{
   position:fixed;
-  left:1030px;
+  left:1035px;
   top:125px;
   max-width: 400px;
   font-family: times, serif; 
-  font-size:16pt;
+  font-size:12pt;
   color: #000000;
   border: 5px solid gray;
   text-align: justify;
@@ -83,11 +83,11 @@
 
 .text2{
   position:fixed;
-  left:1030px;
+  left:1035px;
   top:420px;
   max-width: 400px;
   font-family: times, serif; 
-  font-size:16pt;
+  font-size:12pt;
   color: #000000;
   border: 5px solid gray;
   text-align: justify;
@@ -131,20 +131,21 @@
 }
 .btn4{
   top: 40%;
-  left: 95%;
+  left: 92.5%;
 }
 .btn5{
   top: 75%;
-  left: 95%;
+  left: 92.5%;
 }
 
+/*Animation Doors*/
 .door {
   background-image:url(../assets/images/door.png);
   background-repeat:no-repeat;
-  background-size: 0px 0px;
+  background-size: 10px 10px;
   width: 10px;
   max-width:10px;
-  height: 50px;
+  height: 10px;
   background-position: center;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -159,7 +160,22 @@
 
 .door1{
   top: 41%;
-  left: 33%;
+  left: 32%;
+}
+
+.door2{
+  top: 65.5%;
+  left: 32%;
+}
+
+.door3{
+  top: 57%;
+  left: 97%;
+}
+
+.door4{
+  top: 22%;
+  left: 76%;
 }
 
 .flash {
@@ -234,10 +250,48 @@
     left: 95%;
   }
   .btn5{
-    top: 75%;
+    top: 76%;
     left: 95%;
   }
+
+  .door {
+    background-size: 5px 5px;
+    width: 5px;
+    max-width:5px;
+    height: 5px;
+    padding: 5px 5px;
+  }
+
+  .door1{
+    top: 43%;
+    left: 32.5%;
+  }
+  
+  .door2{
+    top: 66.5%;
+    left: 32.5%;
+  }
+  
+  .door3{
+    top: 58%;
+    left: 96%;
+  }
+  
+  .door4{
+    top: 25%;
+    left: 76%;
+  }
+  
+  .onflashDoorOpen{
+    border-radius: 25%;
+    box-shadow: -5px -5px 10px 10px rgb(95, 250, 74);
+    transition: all .5s;
+  }
+
 }
+
+
+
 
 @media only screen and (max-width: 400px) {
   .container .mainbtn {
@@ -270,4 +324,105 @@
     width: 25px;
     height: 25px;
   }
+
+  .door {
+    background-size: 1px 1px;
+    width: 1px;
+    max-width:1px;
+    height: 1px;
+    padding: 5px 5px;
+  }
+
+  .door1{
+    top: 45%;
+    left: 33%;
+  }
+  
+  .door2{
+    top: 67.5%;
+    left: 33%;
+  }
+  
+  .door3{
+    top: 61%;
+    left: 97%;
+  }
+  
+  .door4{
+    top: 28%;
+    left: 77%;
+  }
+  
+  .onflashDoorOpen{
+    border-radius: 25%;
+    box-shadow: -5px 0px 5px 5px rgb(95, 250, 74);
+    transition: all .5s;
+  }
+
+}
+
+
+/************************************Tooltip*************************************/
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 115%;
+  left: 45%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #000;
+  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }

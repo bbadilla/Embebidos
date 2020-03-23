@@ -172,10 +172,36 @@ myButton6.onclick = function lol() {
 /*****************************************************Doors***************************************************/
 d1=0;
 
-/*Turn on and off light 1*/
+/*Turn on and off light Door 1*/
 var mydiv7 = document.getElementById("flashD1"),
 	myButton7 = document.getElementById("door1");
 myButton7.onclick = function lol() {
     "use strict";
     mydiv7.classList.toggle("onflashDoorOpen");    
 };
+
+/*Turn on and off light Door 2*/
+var mydiv8 = document.getElementById("flashD2"),
+	myButton8 = document.getElementById("door2");
+myButton8.onclick = function lol() {
+    "use strict";
+    mydiv8.classList.toggle("onflashDoorOpen");    
+};
+
+/*Turn on and off light Door 3*/
+var mydiv9 = document.getElementById("flashD3"),
+	myButton9 = document.getElementById("door3");
+myButton9.onclick = function lol() {
+    "use strict";
+    mydiv9.classList.toggle("onflashDoorOpen");    
+};
+
+/*Turn on and off light Door 4*/
+var mydiv10 = document.getElementById("flashD4"),
+	myButton10 = document.getElementById("door4");
+myButton10.onclick = function lol() {
+    "use strict";
+    mydiv10.classList.toggle("onflashDoorOpen");    
+};
+
+
