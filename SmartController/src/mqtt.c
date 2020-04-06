@@ -1,9 +1,5 @@
 #include <mqtt.h>
 
-#define PIN_SIZE 2
-
-int ledPins[] = {17, 27};
-
 MQTTAsync client;
 volatile MQTTAsync_token deliveredtoken;
 MQTTAsync_responseOptions opts = MQTTAsync_responseOptions_initializer;
@@ -14,6 +10,8 @@ int subscribed = 0;
 int finished = 0;
 
 int lights = 0;
+int PIN_SIZE = 0;
+int *ledPins = NULL;
 
 void connlost(void *context, char *cause)
 {
@@ -36,7 +34,8 @@ void connlost(void *context, char *cause)
 int msgarrvd(void *context, char *topicName, int topicLen, MQTTAsync_message *message)
 {
   char *payloadptr;
-  char **arr = NULL;
+  char **arrTopic = NULL;
+  char **arrPayload = NULL;
 
   payloadptr = message->payload;
 
@@ -47,25 +46,32 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTAsync_message *me
 
   putchar('\n');
 
-  split(message->payload, ';', &arr);
+  split(topicName, '/', &arrTopic);
+  split(message->payload, ';', &arrPayload);
 
-  if (!strcmp(topicName, "lights"))
+  if (!strcmp(arrTopic[0], "lights"))
   {
-    if (!strcmp(arr[0], "all"))
+    if (!strcmp(arrPayload[0], "all"))
     {
       lights = !lights;
+      printf("Lights %s\n", lights == 1 ? "ON" : "OFF");
       setPinsValue(ledPins, PIN_SIZE, lights);
+
+      for (int i = 0; i < PIN_SIZE; ++i)
+      {
+        printf("Pin %d is %s\n", ledPins[i], lights == 1 ? "ON" : "OFF");
+      }
     }
     else
     {
-      printf("Pin #%d set to %d\n", atoi(arr[0]), atoi(arr[1]));
-      digitalWrite(atoi(arr[0]), atoi(arr[1]));
+      printf("Pin #%d set to %d\n", atoi(arrTopic[1]), atoi(arrPayload[0]));
+      digitalWrite(atoi(arrTopic[1]), atoi(arrPayload[0]));
     }
   }
 
   if (!strcmp(topicName, "camera"))
   {
-    if (!strcmp(arr[0], "take"))
+    if (!strcmp(arrPayload[0], "take"))
     {
       printf("Photo taken\n");
       sendMessage("taken", TOPIC2);
@@ -74,6 +80,10 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTAsync_message *me
 
   MQTTAsync_freeMessage(&message);
   MQTTAsync_free(topicName);
+
+  free(arrTopic);
+  free(arrPayload);
+
   return 1;
 }
 
@@ -164,8 +174,12 @@ void sendMessage(char *payload, char *topic)
   }
 }
 
-void initMqtt()
+void initMqtt(int *pins, int size)
 {
+  PIN_SIZE = size;
+  ledPins = malloc(size * sizeof(int));
+  memcpy(ledPins, pins, size * sizeof(int));
+
   MQTTAsync_connectOptions conn_opts = MQTTAsync_connectOptions_initializer;
   MQTTAsync_disconnectOptions disc_opts = MQTTAsync_disconnectOptions_initializer;
   int rc;
