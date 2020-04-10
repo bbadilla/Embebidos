@@ -106,7 +106,8 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_proyecto1_OBJECTS = main.$(OBJEXT) mqtt.$(OBJEXT)
 proyecto1_OBJECTS = $(am_proyecto1_OBJECTS)
-proyecto1_DEPENDENCIES = $(top_builddir)/lib/libgpio.la
+proyecto1_DEPENDENCIES = $(top_builddir)/lib/libgpio.la \
+	$(top_builddir)/lib/libutilities.la
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -291,7 +292,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include
 proyecto1_SOURCES = main.c mqtt.c
-proyecto1_LDADD = $(top_builddir)/lib/libgpio.la -lpaho-mqtt3a
+proyecto1_LDADD = $(top_builddir)/lib/libgpio.la $(top_builddir)/lib/libutilities.la -lpaho-mqtt3a
 all: all-am
 
 .SUFFIXES:

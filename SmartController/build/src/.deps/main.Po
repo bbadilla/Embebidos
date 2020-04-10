@@ -73,7 +73,7 @@ main.o: ../../src/main.c \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/locale_t.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/__locale_t.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/strings.h \
- ../../include/gpio.h
+ ../../include/gpio.h ../../include/utilities.h
 
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdc-predef.h:
 
@@ -224,3 +224,5 @@ main.o: ../../src/main.c \
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/strings.h:
 
 ../../include/gpio.h:
+
+../../include/utilities.h:

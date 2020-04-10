@@ -8,6 +8,7 @@
 #include <MQTTAsync.h>
 #include <unistd.h>
 #include <gpio.h>
+#include <utilities.h>
 
 #define ADDRESS "tcp://192.168.0.17:1883"
 #define CLIENTID "ExampleClientSub"
@@ -29,6 +30,5 @@ void onConnect(void *context, MQTTAsync_successData *response);
 void onSend(void *context, MQTTAsync_successData *response);
 void sendMessage(char *payload, char *topic);
 void initMqtt(int *pins, int size);
-int split(char *str, char c, char ***arr);
 
 #endif

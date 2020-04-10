@@ -164,7 +164,10 @@ void setPinsValue(int *pins, int size, int value)
 {
   for (int i = 0; i < size; ++i)
   {
-    digitalWrite(*pins, value);
+    if (digitalRead(*pins) != value)
+    {
+      digitalWrite(*pins, value);
+    }
     printf("Pin %d set to %d\n", *pins, value);
     pins++;
     delay(50);

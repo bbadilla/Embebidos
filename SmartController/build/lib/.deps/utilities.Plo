@@ -1,8 +1,6 @@
-mqtt.o: ../../src/mqtt.c \
+utilities.lo: ../../lib/utilities.c \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdc-predef.h \
- ../../include/mqtt.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTAsync.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdio.h \
+ /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdlib.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/libc-header-start.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/features.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/sys/cdefs.h \
@@ -13,29 +11,15 @@ mqtt.o: ../../src/mqtt.c \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/gnu/stubs-32.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/gnu/stubs-hard.h \
  /opt/poky/2.5.1/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/7.3.0/include/stddef.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/typesizes.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/typesizes-32.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/__FILE.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/FILE.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/libio.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/_G_config.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/__mbstate_t.h \
- /opt/poky/2.5.1/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/7.3.0/include/stdarg.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/stdio_lim.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/sys_errlist.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/stdio.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTProperties.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTReasonCodes.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTSubscribeOpts.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTClientPersistence.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdlib.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/waitflags.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/waitstatus.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/floatn.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/floatn-32.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/floatn-common.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/sys/types.h \
+ /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types.h \
+ /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/typesizes.h \
+ /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/typesizes-32.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/clock_t.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/clockid_t.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/time_t.h \
@@ -72,16 +56,11 @@ mqtt.o: ../../src/mqtt.c \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/environments.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/confname.h \
  /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/getopt_posix.h \
- /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/getopt_core.h \
- ../../include/gpio.h ../../include/utilities.h
+ /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/getopt_core.h
 
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdc-predef.h:
 
-../../include/mqtt.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTAsync.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdio.h:
+/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdlib.h:
 
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/libc-header-start.h:
 
@@ -103,40 +82,6 @@ mqtt.o: ../../src/mqtt.c \
 
 /opt/poky/2.5.1/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/7.3.0/include/stddef.h:
 
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/typesizes.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/typesizes-32.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/__FILE.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/FILE.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/libio.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/_G_config.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/__mbstate_t.h:
-
-/opt/poky/2.5.1/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/7.3.0/include/stdarg.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/stdio_lim.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/sys_errlist.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/stdio.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTProperties.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTReasonCodes.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTSubscribeOpts.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/MQTTClientPersistence.h:
-
-/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/stdlib.h:
-
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/waitflags.h:
 
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/waitstatus.h:
@@ -148,6 +93,12 @@ mqtt.o: ../../src/mqtt.c \
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/floatn-common.h:
 
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/sys/types.h:
+
+/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types.h:
+
+/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/typesizes.h:
+
+/opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/typesizes-32.h:
 
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/types/clock_t.h:
 
@@ -222,7 +173,3 @@ mqtt.o: ../../src/mqtt.c \
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/getopt_posix.h:
 
 /opt/poky/2.5.1/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include/bits/getopt_core.h:
-
-../../include/gpio.h:
-
-../../include/utilities.h:

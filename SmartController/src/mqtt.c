@@ -9,7 +9,6 @@ int disc_finished = 0;
 int subscribed = 0;
 int finished = 0;
 
-int lights = 0;
 int PIN_SIZE = 0;
 int *ledPins = NULL;
 
@@ -51,16 +50,13 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTAsync_message *me
 
   if (!strcmp(arrTopic[0], "lights"))
   {
-    if (!strcmp(arrPayload[0], "all"))
+    if (!strcmp(arrPayload[0], "allOn"))
     {
-      lights = !lights;
-      printf("Lights %s\n", lights == 1 ? "ON" : "OFF");
-      setPinsValue(ledPins, PIN_SIZE, lights);
-
-      for (int i = 0; i < PIN_SIZE; ++i)
-      {
-        printf("Pin %d is %s\n", ledPins[i], lights == 1 ? "ON" : "OFF");
-      }
+      setPinsValue(ledPins, PIN_SIZE, 1);
+    }
+    else if (!strcmp(arrPayload[0], "allOff"))
+    {
+      setPinsValue(ledPins, PIN_SIZE, 0);
     }
     else
     {
@@ -203,65 +199,4 @@ void initMqtt(int *pins, int size)
 
   while (!subscribed)
     usleep(10000L);
-}
-
-int split(char *str, char c, char ***arr)
-{
-  int count = 1;
-  int token_len = 1;
-  int i = 0;
-  char *p;
-  char *t;
-
-  p = str;
-  while (*p != '\0')
-  {
-    if (*p == c)
-      count++;
-    p++;
-  }
-
-  *arr = (char **)malloc(sizeof(char *) * count);
-  if (*arr == NULL)
-    exit(1);
-
-  p = str;
-  while (*p != '\0')
-  {
-    if (*p == c)
-    {
-      (*arr)[i] = (char *)malloc(sizeof(char) * token_len);
-      if ((*arr)[i] == NULL)
-        exit(1);
-
-      token_len = 0;
-      i++;
-    }
-    p++;
-    token_len++;
-  }
-  (*arr)[i] = (char *)malloc(sizeof(char) * token_len);
-  if ((*arr)[i] == NULL)
-    exit(1);
-
-  i = 0;
-  p = str;
-  t = ((*arr)[i]);
-  while (*p != '\0')
-  {
-    if (*p != c && *p != '\0')
-    {
-      *t = *p;
-      t++;
-    }
-    else
-    {
-      *t = '\0';
-      i++;
-      t = ((*arr)[i]);
-    }
-    p++;
-  }
-
-  return count;
 }

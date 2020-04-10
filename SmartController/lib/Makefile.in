@@ -142,6 +142,13 @@ am__v_lt_1 =
 libgpio_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(libgpio_la_LDFLAGS) $(LDFLAGS) -o $@
+libutilities_la_LIBADD =
+am_libutilities_la_OBJECTS = utilities.lo
+libutilities_la_OBJECTS = $(am_libutilities_la_OBJECTS)
+libutilities_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(AM_CFLAGS) $(CFLAGS) $(libutilities_la_LDFLAGS) $(LDFLAGS) \
+	-o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -176,8 +183,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libgpio_la_SOURCES)
-DIST_SOURCES = $(libgpio_la_SOURCES)
+SOURCES = $(libgpio_la_SOURCES) $(libutilities_la_SOURCES)
+DIST_SOURCES = $(libgpio_la_SOURCES) $(libutilities_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -313,6 +320,7 @@ pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
+runstatedir = @runstatedir@
 sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
@@ -321,11 +329,13 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-lib_LTLIBRARIES = libgpio.la
+lib_LTLIBRARIES = libgpio.la libutilities.la
 include_HEADERS = $(top_srcdir)/include/gpio.h
 AM_CPPFLAGS = -I$(top_srcdir)/include
 libgpio_la_SOURCES = gpio.c
 libgpio_la_LDFLAGS = -shared
+libutilities_la_SOURCES = utilities.c
+libutilities_la_LDFLAGS = -shared
 all: all-am
 
 .SUFFIXES:
@@ -398,6 +408,9 @@ clean-libLTLIBRARIES:
 libgpio.la: $(libgpio_la_OBJECTS) $(libgpio_la_DEPENDENCIES) $(EXTRA_libgpio_la_DEPENDENCIES) 
 	$(AM_V_CCLD)$(libgpio_la_LINK) -rpath $(libdir) $(libgpio_la_OBJECTS) $(libgpio_la_LIBADD) $(LIBS)
 
+libutilities.la: $(libutilities_la_OBJECTS) $(libutilities_la_DEPENDENCIES) $(EXTRA_libutilities_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(libutilities_la_LINK) -rpath $(libdir) $(libutilities_la_OBJECTS) $(libutilities_la_LIBADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -405,6 +418,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gpio.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/utilities.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

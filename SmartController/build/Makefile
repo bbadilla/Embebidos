@@ -319,6 +319,7 @@ pdfdir = ${docdir}
 prefix = /home/ema0898/Programas/Embebidos/Proyecto1/build/usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
+runstatedir = ${localstatedir}/run
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 srcdir = ..
