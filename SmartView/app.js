@@ -37,6 +37,7 @@ app.get("/", isLoggedIn, (req, res) => {
 });
 
 require("./routes/authRoutes")(app, User, passport, isLoggedIn);
+require("./routes/MQTT/mqttRoutes")(app);
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);

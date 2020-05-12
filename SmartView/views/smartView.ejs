@@ -3,8 +3,8 @@
 <title>Smart-House</title>
  <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/stylesheets/navegation.css">
-    <link rel="stylesheet" href="../public/stylesheets/smartView.css">
+    <link rel="stylesheet" href="/stylesheets/navegation.css">
+    <link rel="stylesheet" href="/stylesheets/smartView.css">
 
 <body>
   <section class="navigation">
@@ -16,10 +16,7 @@
         <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
         <ul class="nav-list">
           <li>
-            <a href="#!">Usuario</a>
-          </li>
-          <li>
-            <a href="#!">LogOut</a>
+            <a href="/logout">LogOut</a>
           </li>
         </ul>
       </nav>
@@ -42,9 +39,10 @@
     <div id="mainflash" class="flash">
     </div>
   </button>
-  <button data-tooltip="Presione para tomar una fotografía al jardín" id="camerabtn" class="camerabtn">
+  <div id="six" class="button"><button data-tooltip="Presione para tomar una fotografía al jardín" id="camerabtn" class="camerabtn"></div>
+  
   </button>
-  <img class="img" src="../public/assets/images/SmartHouse.png" alt="SmartHouse">
+  <img class="img" src="/assets/images/SmartHouse.png" alt="SmartHouse">
   <button id="btn1" class="btn btn1"> 
     <div id="flash1" class="flash">
     </div>
@@ -82,8 +80,20 @@
     </div>
   </button>
 </div> 
+
+<div id="modal-container">
+  <div class="modal-background">
+    <div class="modal">
+      <h2>Streaming de video</h2>
+      <img src="/assets/images/logo-tec.png" alt="Logo del tec">
+      <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+        <rect x="0" y="0" fill="none" width="678" height="486" rx="3" ry="3"></rect>
+      </svg>
+    </div>
+  </div>
+</div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../public/scripts/smartView.js"></script>
+<script src="/scripts/smartView.js"></script>
 </html>

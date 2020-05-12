@@ -204,4 +204,37 @@ myButton10.onclick = function lol() {
     mydiv10.classList.toggle("onflashDoorOpen");    
 };
 
+$('.button').click(function(){
+    var buttonId = $(this).attr('id');
+    $('#modal-container').removeAttr('class').addClass(buttonId);
+    $('body').addClass('modal-active');
+  })
+  
+  $('#modal-container').click(function(){
+    $(this).addClass('out');
+    $('body').removeClass('modal-active');
+  });
 
+$(".btn").click((element) => {
+    let thisBtn = element.target;
+    let message = {
+        message: $(thisBtn).attr("id")
+    };
+    $.ajax({
+        type: "POST",
+        url: "/sendMessage",
+        data: message
+      });
+})
+
+$(".mainbtn").click((element) => {
+    let thisBtn = element.target;
+    let message = {
+        message: $(thisBtn).attr("id")
+    };
+    $.ajax({
+        type: "POST",
+        url: "/sendMessage",
+        data: message
+      });
+})
