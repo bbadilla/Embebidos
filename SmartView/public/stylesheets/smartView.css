@@ -142,10 +142,10 @@
 .door {
   background-image:url(../assets/images/door.png);
   background-repeat:no-repeat;
-  background-size: 10px 10px;
-  width: 10px;
-  max-width:10px;
-  height: 10px;
+  background-size: 0px 0px;
+  width: 0px;
+  max-width:0px;
+  height: 0px;
   background-position: center;
   position: absolute;
   transform: translate(-50%, -50%);

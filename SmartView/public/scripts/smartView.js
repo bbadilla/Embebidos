@@ -173,36 +173,17 @@ myButton6.onclick = function lol() {
 d1=0;
 
 /*Turn on and off light Door 1*/
-var mydiv7 = document.getElementById("flashD1"),
-	myButton7 = document.getElementById("door1");
-myButton7.onclick = function lol() {
-    "use strict";
-    mydiv7.classList.toggle("onflashDoorOpen");    
-};
+var mydiv7 = document.getElementById("flashD1");
 
-/*Turn on and off light Door 2*/
-var mydiv8 = document.getElementById("flashD2"),
-	myButton8 = document.getElementById("door2");
-myButton8.onclick = function lol() {
-    "use strict";
-    mydiv8.classList.toggle("onflashDoorOpen");    
-};
+
+var mydiv8 = document.getElementById("flashD2");
 
 /*Turn on and off light Door 3*/
-var mydiv9 = document.getElementById("flashD3"),
-	myButton9 = document.getElementById("door3");
-myButton9.onclick = function lol() {
-    "use strict";
-    mydiv9.classList.toggle("onflashDoorOpen");    
-};
+var mydiv9 = document.getElementById("flashD3");
 
 /*Turn on and off light Door 4*/
-var mydiv10 = document.getElementById("flashD4"),
-	myButton10 = document.getElementById("door4");
-myButton10.onclick = function lol() {
-    "use strict";
-    mydiv10.classList.toggle("onflashDoorOpen");    
-};
+var mydiv10 = document.getElementById("flashD4");
+
 
 $('.button').click(function(){
     var buttonId = $(this).attr('id');
@@ -223,7 +204,7 @@ $(".btn").click((element) => {
     $.ajax({
         type: "POST",
         url: "/sendMessage",
-        data: message
+        data: message,
       });
 })
 
@@ -238,3 +219,45 @@ $(".mainbtn").click((element) => {
         data: message
       });
 })
+
+setInterval(function () {getRealData()}, 1000);//request every x seconds
+
+function getRealData() {
+    $.ajax({
+        url: '/getMessageDoor1',
+        dataType: "text",
+        success: function(data){
+            console.log(data);
+            mydiv10.classList.toggle("onflashDoorOpen");  
+        }
+    });
+
+    $.ajax({
+        url: '/getMessageDoor2',
+        dataType: "text",
+        success: function(data){
+            console.log(data);
+            mydiv9.classList.toggle("onflashDoorOpen");  
+        }
+    });
+
+    $.ajax({
+        url: '/getMessageDoor3',
+        dataType: "text",
+        success: function(data){
+            console.log(data);
+            mydiv8.classList.toggle("onflashDoorOpen");  
+        }
+    });
+
+    $.ajax({
+        url: '/getMessageDoor4',
+        dataType: "text",
+        success: function(data){
+            console.log(data);
+            mydiv7.classList.toggle("onflashDoorOpen");  
+        }
+    });
+
+}
+
