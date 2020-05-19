@@ -2,15 +2,15 @@
 #include <mqtt.h>
 #include <gpio.h>
 
-#define OUT_PINS 2
-#define IN_PINS 1
+#define OUT_PINS 5
+#define IN_PINS 4
 
 int main(int argc, char *argv[])
 {
   int ch;
 
-  int ledPins[] = {22, 27};
-  int doorPins[] = {17};
+  int ledPins[] = {17, 27, 22, 10, 9};
+  int doorPins[] = {6, 13, 19, 26};
 
   exportPins(ledPins, OUT_PINS);
   exportPins(doorPins, IN_PINS);
@@ -22,10 +22,26 @@ int main(int argc, char *argv[])
 
   do
   {
-    if (!digitalRead(17))
+    if (!digitalRead(6))
     {
-      sendMessage("1", "doors/22");
+      sendMessage("1", "doors/6");
     }
-    usleep(1000 * 1000);
-  } while (ch != 'Q' && ch != 'q');
+
+    if (!digitalRead(13))
+    {
+      sendMessage("1", "doors/13");
+    }
+
+    if (!digitalRead(19))
+    {
+      sendMessage("1", "doors/19");
+    }
+
+    if (!digitalRead(26))
+    {
+      sendMessage("1", "doors/26");
+    }
+
+    usleep(500 * 1000);
+  } while (1);
 }

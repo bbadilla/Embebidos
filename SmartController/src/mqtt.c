@@ -65,15 +65,6 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTAsync_message *me
     }
   }
 
-  if (!strcmp(topicName, "camera"))
-  {
-    if (!strcmp(arrPayload[0], "take"))
-    {
-      printf("Photo taken\n");
-      sendMessage("taken", TOPIC2);
-    }
-  }
-
   MQTTAsync_freeMessage(&message);
   MQTTAsync_free(topicName);
 

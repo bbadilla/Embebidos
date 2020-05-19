@@ -1,11 +1,5 @@
 #! /usr/bin/env python
 
-# From https://gist.github.com/tzicatl/2409785
-
-# based on the ideas from http://synack.me/blog/implementing-http-live-streaming
-# Run this script and then launch the following pipeline:
-# gst-launch videotestsrc pattern=ball ! video/x-raw-rgb, framerate=15/1, width=640, height=480 !  jpegenc ! multipartmux boundary=spionisto ! tcpclientsink port=9999
-
 from Queue import Queue
 from threading import Thread
 from socket import socket
@@ -23,41 +17,11 @@ def create_server(host, port, app, server_class=MyWSGIServer,
   return make_server(host, port, app, server_class, handler_class)
 
 
-INDEX_PAGE = """
-<html>
-<head>
-    <title>Gstreamer testing</title>
-</head>
-<body>
-<h1>Testing a dummy camera with GStreamer</h1>
-<img src="/mjpeg_stream"/>
-<hr />
-</body>
-</html>
-"""
-ERROR_404 = """
-<html>
-  <head>
-    <title>404 - Not Found</title>
-  </head>
-  <body>
-    <h1>404 - Not Found</h1>
-  </body>
-</html>
-"""
-
-
 class IPCameraApp(object):
   queues = []
 
   def __call__(self, environ, start_response):
-    if environ['PATH_INFO'] == '/video':
-      start_response("200 OK", [
-          ("Content-Type", "text/html"),
-          ("Content-Length", str(len(INDEX_PAGE)))
-      ])
-      return iter([INDEX_PAGE])
-    elif environ['PATH_INFO'] == '/mjpeg_stream':
+    if environ['PATH_INFO'] == '/mjpeg_stream':
       return self.stream(start_response)
     else:
       start_response("404 Not Found", [
@@ -106,7 +70,7 @@ if __name__ == '__main__':
   app = IPCameraApp()
   port = 1339
   print 'Launching camera server on port', port
-  httpd = create_server('', port, app)
+  httpd = create_server('192.168.0.28', port, app)
 
   print 'Launch input stream thread'
   t1 = Thread(target=input_loop, args=[app])
